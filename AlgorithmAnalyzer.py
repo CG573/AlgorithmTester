@@ -28,16 +28,11 @@ def QuadraticAlgorithm(x):
     n = len(x)
     maxSoFar = 0.0
 
-    completedLoops = 0
-    totalLoops = pow(n, 3)
-
     for l in range(1, n+1):
         for u in range(l, n+1):
             sum = 0.0
             for i in range(l, u+1):
                 sum += x[i-1]
-                completedLoops += 1
-                #print(f'{round((completedLoops / totalLoops) * 100)}% ({completedLoops}/{totalLoops})')
             maxSoFar = max(maxSoFar, sum)
 
     return maxSoFar
@@ -89,8 +84,6 @@ def AlgorithmTester(algorithm, xLength, numRuns, maxX):
         t = time.time() - t
         totalTime = totalTime + t
 
-        #print(f'With the array {x} the result is {AlgorithmOutput}.')
-        #print(f'The computation took {t} seconds')
         print('-'* 20)
     print(f'progress 100% ({numRuns}/{numRuns})')
     print(ScientificToDecimal(totalTime / numRuns))
