@@ -48,18 +48,18 @@ def SquareAlgorithm1(x):
     return maxSoFar
 
 def SquareAlgorithm2(x):
-    cumArray = [0] * (len(x) + 1)
-
-    for i in range(1, len(x) + 1):
-        cumArray[i] = cumArray[i - 1] + x[i - 1]
-
     n = len(x)
+    cumArray = [0] * (n+1) 
+
+    for i in range(1, n+1):
+        cumArray[i] = cumArray[i-1] + x[i-1]
+
     maxSoFar = 0.0
 
-    for L in range(1, n+1):
-        for U in range(L, n+1):
-            subarraySum = cumArray[U] - cumArray[L - 1]
-            maxSoFar = max(maxSoFar, subarraySum)
+    for l in range(1, n+1):
+        for u in range(l, n+1):
+            sum = cumArray[u] - cumArray[l - 1]
+            maxSoFar = max(maxSoFar, sum)
 
     return maxSoFar
 
